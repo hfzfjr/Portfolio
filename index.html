@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio Hafiz</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="assets/logo/logo.png" />
+  </head>
+  <body>
+    <!-- ===== NAVBAR ===== -->
+    <header>
+      <nav class="navbar">
+        <div class="nav-logo">
+          <img src="assets/logo/logo.png" alt="Logo Hafiz" />
+          <span>HAFIZ</span>
+        </div>
+        <ul class="nav-left">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ===== HOME SECTION ===== -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Hello, I'm <span>HAFIZ</span></h1>
+        <div class="subtitle">
+          <p class="role">Frontend Developer</p>
+          <p class="status">student</p>
+        </div>
+        <p>
+          I build interfaces that combine attractive appearance and optimal
+          performance to provide users with an intuitive experience across
+          devices.
+        </p>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/hafizfajar_01/" target="_blank">
+            <img src="assets/logo/logo-instagram.svg" alt="Instagram" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/hafiz-fajar-ramadhan-4290b2292/"
+            target="_blank"
+          >
+            <img src="assets/logo/logo-linkedin.svg" alt="LinkedIn" />
+          </a>
+          <a href="https://github.com/hfzfjr" target="_blank">
+            <img src="assets/logo/logo-github.svg" alt="Github" />
+          </a>
+        </div>
+        <a
+          href="https://drive.google.com/file/d/1o8MZH9S-G8UlFGmWqDuXjFst6p9TJWik/view?usp=sharing"
+          class="btn"
+          target="_blank"
+        >
+          View CV
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="about">
+      <h1>About Me</h1>
+      <p>
+        Saya adalah seorang web developer yang menyukai desain clean dan
+        responsif. Fokus saya adalah membuat website cepat, menarik, dan mudah
+        digunakan.
+      </p>
+    </section>
+
+    <!-- ===== PROJECTS SECTION ===== -->
+    <section id="projects" class="projects">
+      <h1>My Projects</h1>
+      <div class="project-grid">
+        <div class="project-card">
+          <img src="assets/project/tubes.jpg" alt="Project 1" />
+          <h3>Simple Crowdfunding Application</h3>
+          <p>
+            An application designed to make it easier for users to view and
+            record contributions to crowdfunding projects.
+          </p>
+          <a
+            href="https://github.com/hfzfjr/Tubes-Aplikasi-Crowdfunding-Sederhana"
+            target="_blank"
+            ><button>View Project</button></a
+          >
+        </div>
+        <!--div class="project-card">
+          <img src="assets/img/project2.jpg" alt="Project 2" />
+          <h3>Landing Page Design</h3>
+        </div>
+        <div class="project-card">
+          <img src="" alt="Project 3" />
+          <h3>UI Dashboard</h3>
+        </div-->
+      </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="contact">
+      <h1>Contact Me</h1>
+      <form action="" method="post">
+        <input id="name" name="name" type="text" placeholder="Name" required />
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Email"
+          required
+        />
+        <textarea name="message" id="message" placeholder="Message"></textarea>
+        <button id="button" name="button">Send Message</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>© 2025 Hafiz Fajar Ramadhan. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
