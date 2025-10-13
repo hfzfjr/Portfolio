@@ -258,7 +258,9 @@ header.scrolled .navbar {
 }
 
 .project-grid {
-  display: grid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
 }
@@ -269,6 +271,7 @@ header.scrolled .navbar {
   padding: 15px;
   border-radius: 12px;
   transition: all 0.3s ease;
+  width: 30%;
 }
 
 .project-card:hover {
