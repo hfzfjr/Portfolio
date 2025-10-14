@@ -23,6 +23,7 @@ header {
   z-index: 1000;
   padding: 0;
   margin: 0;
+  transition: background-color 0.3s ease, backdrop-filter: 0.3s ease;
 }
 
 /* Navbar dengan border-radius lebih besar */
@@ -36,6 +37,7 @@ header {
   width: 100%;
   font-size: 18px;
   box-sizing: border-box;
+  transition: ALL 0.3s ease;
 }
 
 .nav-left {
@@ -78,7 +80,7 @@ header {
 }
 
 .nav-logo span {
-  color: #64ffda;
+  color: #38bdf8;
   font-weight: 700;
   font-size: 26px;
 }
@@ -101,8 +103,9 @@ header {
 /* Efek sticky saat discroll */
 header.scrolled .navbar {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-  transition: 0.3s ease;
-  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(15px);
 }
 
 /* Media query untuk tampilan mobile */
@@ -182,8 +185,6 @@ header.scrolled .navbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
 }
 
 .social-icons img {
@@ -196,15 +197,6 @@ header.scrolled .navbar {
 .social-icons img:hover {
   transform: scale(1.1);
   filter: brightness(1.3);
-}
-
-.btn {
-  display: inline-block;
-  background: #38bdf8;
-  padding: 15px 20px;
-  border-radius: 15px;
-  color: #0d1c33;
-  text-decoration: none;
 }
 
 @media (min-width: 768px) {
@@ -247,31 +239,43 @@ header.scrolled .navbar {
 
 /* ===== PROJECTS SECTION ===== */
 .projects {
-  padding: 100px 50px;
+  padding: 85px 50px;
   text-align: center;
   background-color: #0d1c33;
 }
 
 .projects h1 {
   color: #E2E8FF;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 
 .project-grid {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  justify-items: center;
   align-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+}
+
+.project-card h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.project-card p, a {
+  margin-bottom: 20px;
+  text-align: left;
+  padding: 10px;
 }
 
 .project-card {
-  background: #ffffff;
-  border: 2px solid #e2e8f0;
+  background: #112240;
+  color: #E2E8FF;
+  border: 2px solid #162b50;
   padding: 15px;
-  border-radius: 12px;
+  border-radius: 10px;
   transition: all 0.3s ease;
-  width: 30%;
+  width: 100%;
 }
 
 .project-card:hover {
@@ -287,14 +291,89 @@ header.scrolled .navbar {
 
 /* ===== CONTACT SECTION ===== */
 .contact {
-  padding: 100px 50px;
+  padding: 125px 50px;
   text-align: center;
   background-color: #112240;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.contact-content {
+  width: 50%;
+}
+
+.contact-form {
+  background-color: #0d1c33;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 100%;
+  gap: 20px;
 }
 
 .contact h1 {
   color: #E2E8FF;
   margin-bottom: 30px;
+}
+
+.contact-form .input-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+
+form {
+  width: 100%;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background-color: #112240;
+  color: #E2E8FF;
+  padding: 15px 15px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #233554;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.contact-form textarea {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 150px;
+  max-height: 500px;
+  height: 200px;
+}
+
+.button-submit {
+  display: flex;
+  justify-content: right;
+}
+
+.button {
+  display: inline-block;
+  background-color: #38bdf8;
+  color: #0d1c33;
+  padding: 15px 20px;
+  font-size: 16px;
+  border: none;
+  text-decoration: none;
+  border-radius: 10px;
+  cursor: pointer;
+  align-self: flex-end;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0288d1;
 }
 
 /* ===== FOOTER ===== */
