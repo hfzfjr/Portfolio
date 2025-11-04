@@ -12,7 +12,7 @@
     <header>
       <nav class="navbar">
         <div class="nav-logo">
-          <img src="assets/logo/logo.png" alt="Logo Hafiz" />
+          <img src="assets/logo/logo-H.png" alt="Logo Hafiz" />
           <span>HAFIZ</span>
         </div>
         <ul class="nav-left">
@@ -34,10 +34,10 @@
       <div class="hero-content">
         <h1>Hello, I'm <span>HAFIZ</span></h1>
         <div class="subtitle">
-          <p class="role">Frontend Developer</p>
-          <p class="status">student</p>
+          <p class="role">Frontend Enthusiast</p>
+          <p class="status">Student</p>
         </div>
-        <p>
+        <p class="about-description">
           I build interfaces that combine attractive appearance and optimal
           performance to provide users with an intuitive experience across
           devices.
@@ -68,12 +68,41 @@
 
     <!-- ===== ABOUT SECTION ===== -->
     <section id="about" class="about">
-      <h1>About Me</h1>
-      <p>
-        Saya adalah seorang web developer yang menyukai desain clean dan
-        responsif. Fokus saya adalah membuat website cepat, menarik, dan mudah
-        digunakan.
-      </p>
+      <div class="about-container">
+        <h1 class="about-title">About Me</h1>
+        <div class="about-wrapper">
+          <figure class="about-photo">
+            <img src="/assets/me/me.jpeg" alt="Photo of Hafiz Fajar Ramadhan">
+          </figure>
+          <article class="about-description">
+            <p>
+              Hello! I'm Hafiz Fajar Ramadhan, a student passionate about front-end development. I enjoy transforming ideas into attractive, responsive, and user-friendly web designs. For me, building a website isn't just about writing code; it's also about delivering a great user experience. I'm also open to learning new things and collaborating on projects that can broaden my web development experience.
+            </p>
+            <div class="about-skills">
+              <h2 class="skills-title">Skills</h2>
+              <ul class="skills-list">
+                <li>
+                  <img src="/assets/logo/html-logo.png">
+                  <span>HTML</span>
+                </li>
+                <li>
+                  <img src="/assets/logo/css-logo.png">
+                  <span>CSS</span>
+                </li>
+                <li>
+                  <img src="/assets/logo/golang-logo.png">
+                  <span>GO</span>
+                </li>
+                <li>
+                  <img src="/assets/logo/c++-logo.png">
+                  <span>C++</span>
+                </li>
+              </ul>
+            </div>
+            <a href="#contact" class="button">Contact Me</a>
+          </article>
+        </div>
+      </div>
     </section>
 
     <!-- ===== PROJECTS SECTION ===== -->
@@ -169,12 +198,12 @@
 
     <!-- ===== CONTACT SECTION ===== -->
     <section id="contact" class="contact">
-      <div class="contact-content">
-        <h1>Contact Me</h1>
-        <div class="contact-form">
-          <form action="" method="post">
-            <div class="input-container">
-              <input
+    <div class="contact-content">
+      <h1>Contact Me</h1>
+      <div class="contact-form">
+        <form id="contact-form">
+          <div class="input-container">
+            <input
               id="name"
               name="name"
               type="text"
@@ -188,24 +217,29 @@
               placeholder="Email"
               required
             />
-            </div>
-            <textarea
-              name="message"
-              id="message"
-              placeholder="Message"
-            ></textarea>
-            <div class="button-submit">
-              <button id="button" class="button" name="button-form">Send Message</button>
-            </div>
-          </form>
-        </div>
+          </div>
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Message"
+          ></textarea>
+          <div class="button-submit">
+            <button type="submit" class="button">Send Message</button>
+          </div>
+          <!-- Add Loading Spinner -->
+          <div id="loading-spinner" class="loading-spinner" style="display:none;">
+            <div class="spinner"></div> Sending...
+          </div>
+        </form>
       </div>
-    </section>
+    </div>
+  </section>
 
     <footer>
-      <p>© 2025 Hafiz Fajar Ramadhan. All rights reserved.</p>
+       <p>© 2025 Hafiz Fajar Ramadhan. All rights reserved.</p>
     </footer>
 
+    <script src="js/email.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
