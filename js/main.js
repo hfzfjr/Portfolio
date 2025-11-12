@@ -10,13 +10,16 @@
     nav.addEventListener('mouseover', (e) => {
       const a = e.target.closest(linkSel);
       if (!a) return;
-      savedActive?.classList.remove('active');
+      // Hapus semua "active" dulu untuk memastikan hanya satu yang aktif
+      nav.querySelectorAll('a.active').forEach(activeA => activeA.classList.remove('active'));
       a.classList.add('active');
     });
 
     // Kembalikan "active" awal saat mouse keluar navbar
     nav.addEventListener('mouseleave', () => {
+      // Hapus semua "active"
       nav.querySelectorAll('a.active').forEach(a => a.classList.remove('active'));
+      // Tambah kembali ke savedActive jika ada
       savedActive?.classList.add('active');
     });
 
@@ -24,13 +27,14 @@
     nav.addEventListener('click', (e) => {
       const a = e.target.closest(linkSel);
       if (!a) return;
-      savedActive?.classList.remove('active');
+      // Hapus semua "active"
+      nav.querySelectorAll('a.active').forEach(activeA => activeA.classList.remove('active'));
       savedActive = a;
       a.classList.add('active');
     });
 })();
 
-  (function () {
+(function () {
     const header = document.querySelector('header');
     const onScroll = () => {
       if (window.scrollY > 8) {
@@ -41,17 +45,18 @@
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('load', onScroll);
-  })();
+})();
 
-  window.onload = function() {
+window.onload = function() {
   const heroContent = document.querySelector('.hero-content');
   heroContent.classList.add('active');
 };
 
 // Menambahkan fungsi untuk hamburger menu
 const hamburger = document.getElementById("hamburger-menu");
-const navLinks = document.querySelector(".nav-left");
+const navLinks = document.querySelector(".nav-right");
 
 hamburger.addEventListener("click", () => {
   navLinks.classList.toggle("active");
+  hamburger.classList.toggle("active");
 });
