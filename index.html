@@ -38,7 +38,11 @@
           <p class="status">Student</p>
         </div>
         <div class="hero-description">
-          <p>I build interfaces that combine attractive appearance and optimal performance to provide users with an intuitive experience across devices.</p>
+          <p>
+            I build interfaces that combine attractive appearance and optimal
+            performance to provide users with an intuitive experience across
+            devices.
+          </p>
         </div>
         <div class="social-icons">
           <a href="https://www.instagram.com/hafizfajar_01/" target="_blank">
@@ -70,29 +74,35 @@
         <h1 class="about-title">About Me</h1>
         <div class="about-wrapper">
           <figure class="about-photo">
-            <img src="assets/me/me.jpeg" alt="Photo of Hafiz Fajar Ramadhan">
+            <img src="assets/me/me.jpeg" alt="Photo of Hafiz Fajar Ramadhan" />
           </figure>
           <article class="about-description">
             <p>
-              Hello! I'm Hafiz Fajar Ramadhan, a student passionate about front-end development. I enjoy transforming ideas into attractive, responsive, and user-friendly web designs. For me, building a website isn't just about writing code; it's also about delivering a great user experience. I'm also open to learning new things and collaborating on projects that can broaden my web development experience.
+              Hello! I'm Hafiz Fajar Ramadhan, a student passionate about
+              front-end development. I enjoy transforming ideas into attractive,
+              responsive, and user-friendly web designs. For me, building a
+              website isn't just about writing code; it's also about delivering
+              a great user experience. I'm also open to learning new things and
+              collaborating on projects that can broaden my web development
+              experience.
             </p>
             <div class="about-skills">
               <h2 class="skills-title">Skills</h2>
               <ul class="skills-list">
                 <li>
-                  <img src="assets/logo/html-logo.png">
+                  <img src="assets/logo/html-logo.png" />
                   <span>HTML</span>
                 </li>
                 <li>
-                  <img src="assets/logo/css-logo.png">
+                  <img src="assets/logo/css-logo.png" />
                   <span>CSS</span>
                 </li>
                 <li>
-                  <img src="assets/logo/golang-logo.png">
+                  <img src="assets/logo/golang-logo.png" />
                   <span>GO</span>
                 </li>
                 <li>
-                  <img src="assets/logo/c++-logo.png">
+                  <img src="assets/logo/c++-logo.png" />
                   <span>C++</span>
                 </li>
               </ul>
@@ -156,47 +166,69 @@
 
     <!-- ===== CONTACT SECTION ===== -->
     <section id="contact" class="contact">
-    <div class="contact-content">
-      <h1>Contact Me</h1>
-      <div class="contact-form">
-        <form id="contact-form">
-          <div class="input-container">
-            <input
-              id="name"
-              name="name"
-              type="text"
-              placeholder="Name"
+      <div class="contact-content">
+        <h1>Contact Me</h1>
+        <div class="contact-form">
+          <form id="contact-form">
+            <div class="input-container">
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Name"
+                required
+              />
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Email"
+                required
+              />
+            </div>
+            <textarea
+              name="message"
+              id="message"
+              placeholder="Message"
               required
-            />
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="Email"
-              required
-            />
-          </div>
-          <textarea
-            name="message"
-            id="message"
-            placeholder="Message"
-          ></textarea>
-          <div class="button-submit">
-            <button type="submit" class="button">Send Message</button>
-          </div>
-          <!-- Add Loading Spinner -->
-          <div id="loading-spinner" class="loading-spinner" style="display:none;">
-            <div class="spinner"></div> Sending...
-          </div>
-        </form>
+            ></textarea>
+            <div class="button-submit">
+              <button type="submit" class="button">Send Message</button>
+            </div>
+            <!-- Add Loading Spinner -->
+            <div
+              id="loading-spinner"
+              class="loading-spinner"
+              style="display: none"
+            >
+              <div class="spinner"></div>
+              Sending...
+            </div>
+            <!-- EmailJS SDK -->
+            <script
+              type="text/javascript"
+              src="https://cdn.emailjs.com/dist/email.min.js"
+            ></script>
+          </form>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
     <footer>
-       <p>© 2025 Hafiz Fajar Ramadhan. All rights reserved.</p>
+      <p>© 2025 Hafiz Fajar Ramadhan. All rights reserved.</p>
     </footer>
 
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "MIcm4c8G4YJ2gD4Vz", // Ganti dengan public key EmailJS Anda
+        });
+      })();
+    </script>
     <script src="js/email.js"></script>
     <script src="js/main.js"></script>
   </body>
