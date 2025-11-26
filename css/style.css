@@ -51,7 +51,6 @@ header {
   100% { transform: rotate(360deg); }
 }
 
-/* Navbar dengan border-radius lebih besar */
 .navbar {
   background-color: transparent;
   padding: 10px 40px;
@@ -90,7 +89,6 @@ header {
   color: #ffffff;
 }
 
-/* Logo di tengah navbar */
 .nav-left {
   display: flex;
   align-items: center;
@@ -163,7 +161,7 @@ header.scrolled .navbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #0d1c33;
+  background: #0b1223;
   text-align: center;
   padding: 0 20px;
 }
@@ -175,7 +173,7 @@ header.scrolled .navbar {
 }
 
 .hero-content span {
-  color: #64ffda;
+  color: #38bdf8;
 }
 
 .subtitle {
@@ -187,18 +185,52 @@ header.scrolled .navbar {
 .subtitle p {
   font-size: 1.5rem;
   margin: 5px 0;
-  color: #d87474;
   opacity: 0;
   transform: translateY(30px);
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
+/* Subtitle rolling animation: two lines alternate vertically */
+.subtitle {
+  position: relative;
+  height: 5rem; /* reserve space for one line */
+  overflow: hidden;
+}
+
+.subtitle p {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  margin: 0;
+  font-size: 1.5rem;
+  color: #d87474;
+  text-align: center;
+  will-change: transform, opacity;
+}
+
+@keyframes roleCycle {
+  0% { transform: translateY(0); opacity: 1; }
+  42.857% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-100%); opacity: 0; }
+  100% { transform: translateY(-100%); opacity: 0; }
+}
+
+@keyframes statusCycle {
+  0% { transform: translateY(100%); opacity: 0; }
+  50% { transform: translateY(100%); opacity: 0; }
+  57.143% { transform: translateY(0); opacity: 1; }
+  92.857% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100%); opacity: 0; }
+}
+
 .subtitle .role {
-  transition-delay: 0.2s;
+  animation: roleCycle 7s ease-in-out infinite;
 }
 
 .subtitle .status {
-  transition-delay: 0.4s;
+  animation: statusCycle 7s ease-in-out infinite;
 }
 
 .hero-content p {
@@ -261,9 +293,31 @@ header.scrolled .navbar {
   transform: translateY(0);
 }
 
+@media (min-width: 1024px) {
+  :root {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  }
+
+  .cursor-spotlight {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 900;
+    background: radial-gradient(
+      circle at var(--mouse-x) var(--mouse-y),
+      #111f428d 0%,
+      transparent 35%
+    );
+    mix-blend-mode: screen;
+    transition: background 120ms linear, opacity 180ms ease;
+    opacity: 1;
+  }
+}
+
 /* ===== ABOUT SECTION ===== */
 .about {
-  background-color: #112240;
+  background-color: #101f38;
   color: #E2E8FF;
   padding: 85px 10%;
   display: flex;
@@ -406,7 +460,7 @@ header.scrolled .navbar {
 .projects {
   padding: 85px 50px;
   text-align: center;
-  background-color: #0d1c33;
+  background-color: #0b1223;
 }
 
 .projects h1 {
@@ -416,24 +470,29 @@ header.scrolled .navbar {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Maksimal 3 per baris */
-  gap: 25px; /* Jarak antar card tetap 20px */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
   justify-items: center;
   justify-content: center;
-  max-width: 1200px; /* Membatasi lebar grid agar tidak melebar terlalu besar */
-  margin: 0 auto; /* Center grid */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .project-card {
-  background: #112240;
+  background: transparent;
   color: #E2E8FF;
   border: 2px solid #162b50;
   padding: 15px;
   border-radius: 10px;
   transition: all 0.3s ease;
   width: 100%;
-  max-width: 400px; /* Membatasi lebar maksimal card */
+  max-width: 400px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 500px;
 }
 
 .project-card:hover {
@@ -443,8 +502,10 @@ header.scrolled .navbar {
 
 .project-card img {
   width: 100%;
+  height: 250px;
   border-radius: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  object-fit: cover;
 }
 
 .project-card h2 {
@@ -454,21 +515,31 @@ header.scrolled .navbar {
 
 .project-card p {
   color: #e2e8ffc9;
-}
-
-.project-card p, .project-card a {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-align: left;
-  padding: 10px;
+  padding: 0 10px;
+  flex-grow: 1;
 }
 
-/* Mobile responsiveness: Stack projects vertically */
+.project-card a {
+  align-self: center;
+  margin-top: auto;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding: 0 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .project-grid {
-    display: flex; /* Kembali ke flex untuk mobile */
-    flex-direction: column;
-    align-items: center;
-    gap: 20px; /* Gap sama untuk konsistensi di mobile */
+    grid-template-columns: 1fr;
+    padding: 0 20px;
   }
   
   .project-card {
@@ -481,7 +552,7 @@ header.scrolled .navbar {
 .contact {
   padding: 125px 25px;
   text-align: center;
-  background-color: #112240;
+  background-color: #101f38;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -494,7 +565,7 @@ header.scrolled .navbar {
 }
 
 .contact-form {
-  background-color: #0d1c33;
+  background-color: #0b122392;
   padding: 25px;
   display: flex;
   flex-direction: column;
@@ -523,7 +594,7 @@ form {
 
 .contact-form input,
 .contact-form textarea {
-  background-color: #112240;
+  background-color: #101f38;
   color: #E2E8FF;
   padding: 15px 15px;
   font-size: 16px;
@@ -570,13 +641,4 @@ form {
     flex-direction: column;
     gap: 0px;
   }
-}
-
-/* ===== FOOTER ===== */
-footer {
-  background-color: #0d1c33;
-  text-align: center;
-  padding: 15px;
-  color: #ffffff;
-  font-size: 14px;
 }

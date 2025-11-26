@@ -60,3 +60,35 @@ hamburger.addEventListener("click", () => {
   navLinks.classList.toggle("active");
   hamburger.classList.toggle("active");
 });
+
+// Global cursor-follow spotlight overlay (applies to entire page)
+(function() {
+  // create overlay element
+  const overlay = document.createElement('div');
+  overlay.className = 'cursor-spotlight';
+  document.body.appendChild(overlay);
+
+  let raf = null;
+  const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+
+  function update() {
+    overlay.style.setProperty('--mouse-x', mouse.x + 'px');
+    overlay.style.setProperty('--mouse-y', mouse.y + 'px');
+    raf = null;
+  }
+
+  document.addEventListener('mousemove', function(e) {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+    if (!raf) raf = requestAnimationFrame(update);
+  });
+
+  document.addEventListener('mouseleave', function() {
+    overlay.style.opacity = '0';
+  });
+  document.addEventListener('mouseenter', function() {
+    overlay.style.opacity = '1';
+  });
+
+  if (!raf) raf = requestAnimationFrame(update);
+})();
