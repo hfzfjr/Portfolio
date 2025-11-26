@@ -377,28 +377,6 @@ header.scrolled .navbar {
   margin-bottom: 15px;
 }
 
-@media (max-width: 768px) {
-  .about-wrapper {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-photo img {
-    width: 350px;
-    height: 100%px;
-  }
-
-  .about-description {
-    font-size: 1rem;
-    text-align: left;
-  }
-
-  .about-contact-me {
-    display: flex;
-    justify-content: center;
-  }
-}
-
 /* ===== ABOUT SKILLS SECTION ===== */
 .about-skills {
   margin-top: 30px;
@@ -422,7 +400,6 @@ header.scrolled .navbar {
 }
 
 .skills-list li {
-  background-color: #0a2342;
   color: #ffffff;
   width: 80px;
   height: 80px;
@@ -448,13 +425,32 @@ header.scrolled .navbar {
   object-fit: contain;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .about-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-photo img {
+    width: 350px;
+    height: 100%px;
+  }
+
+  .about-description {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .about-contact-me {
+    display: flex;
+    justify-content: center;
+  }
+
   .skills-list {
     justify-content: center;
     gap: 0px;
   }
 }
-
 
 /* ===== PROJECTS SECTION ===== */
 .projects {
@@ -537,6 +533,10 @@ header.scrolled .navbar {
 }
 
 @media (max-width: 768px) {
+  .projects {
+    padding: 85px 0px;
+  }
+
   .project-grid {
     grid-template-columns: 1fr;
     padding: 0 20px;
