@@ -47,6 +47,37 @@
     window.addEventListener('load', onScroll);
 })();
 
+// Update active nav link based on scroll position
+(function() {
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-right a');
+  
+  function updateActiveLink() {
+    let currentSection = '';
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      
+      // Check if section is in viewport
+      if (window.scrollY >= sectionTop - 200) {
+        currentSection = section.getAttribute('id');
+      }
+    });
+    
+    // Update active link
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + currentSection) {
+        link.classList.add('active');
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  window.addEventListener('load', updateActiveLink);
+})();
+
 window.onload = function() {
   const heroContent = document.querySelector('.hero-content');
   heroContent.classList.add('active');
