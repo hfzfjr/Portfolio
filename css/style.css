@@ -354,7 +354,7 @@ header.scrolled .navbar {
 }
 
 .about-container {
-  max-width: 1000px;
+  max-width: 1300px;
   width: 100%;
 }
 
@@ -377,15 +377,44 @@ header.scrolled .navbar {
 .about-photo {
   flex: 1;
   text-align: center;
+  position: relative;
+  display: inline-block;
+  border-radius: 20px;
+}
+
+.about-photo::after {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: -7px;
+  right: -7px;
+  bottom: -7px;
+  border-radius: 27px;
+  border: 2px solid #274881;
+  z-index: 0;
+}
+
+.about-photo::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #274881 0%, #06080f 100%);
+  z-index: 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .about-photo img {
-  width: 400px;
+  width: 480px;
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
-  border: 5px solid #0d1c33;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  border: 5px;
+  position: relative;
+  z-index: 1;
   transition: transform 0.3s ease;
 }
 
@@ -398,7 +427,7 @@ header.scrolled .navbar {
   flex: 2;
   font-size: 1.1rem;
   line-height: 1.8;
-  max-width: 600px;
+  max-width: 700px;
   text-align: left;
 }
 
@@ -648,21 +677,44 @@ form {
 }
 
 .button {
-  display: inline-block;
-  background-color: #38bdf8;
-  color: #0d1c33;
-  padding: 15px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 26px;
   font-size: 16px;
-  border: none;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #38bdf8;
   text-decoration: none;
+  background: linear-gradient(180deg, rgba(16, 31, 56, 0.9) 0%, rgba(11, 18, 35, 0.9) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.35);
   border-radius: 10px;
-  cursor: pointer;
-  align-self: flex-end;
-  transition: background-color 0.3s ease;
+  box-shadow:
+    0 0 0 1px rgba(56, 189, 248, 0.10),
+    0 0 16px rgba(56, 189, 248, 0.14);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
 .button:hover {
-  background-color: #0288d1;
+  transform: translateY(-1px);
+  border-color: rgba(56, 189, 248, 0.65);
+  box-shadow:
+    0 0 0 1px rgba(56, 189, 248, 0.18),
+    0 0 24px rgba(56, 189, 248, 0.22);
+}
+
+.button:active {
+  transform: translateY(0px);
+  box-shadow:
+    0 0 0 1px rgba(56, 189, 248, 0.12),
+    0 0 14px rgba(56, 189, 248, 0.18);
+}
+
+.button:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(56, 189, 248, 0.22),
+    0 0 24px rgba(56, 189, 248, 0.22);
 }
 
 @media (max-width: 768px) {
